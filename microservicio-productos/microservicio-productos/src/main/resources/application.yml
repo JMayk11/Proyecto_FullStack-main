@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: microservicio-productos
+
+  # Hibernate crea las tablas automáticamente en tu BD H2 o local
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  # Habilitar Consola H2 interactiva para Productos
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# Registro en el Servidor Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

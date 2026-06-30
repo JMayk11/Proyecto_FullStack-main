@@ -1,0 +1,50 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          # 👇 AQUÍ ESTÁ LA MAGIA PARA RESOLVER EL ERROR DE CORS
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                allowedHeaders: "*"
+          routes:
+            # 1. Ruta para Productos
+            - id: microservicio-productos
+              uri: lb://MICROSERVICIO-PRODUCTOS
+              predicates:
+                - Path=/productos/**
+
+            # 2. Ruta para Pagos
+            - id: microservicio-pagos
+              uri: lb://MICROSERVICIO-PAGOS
+              predicates:
+                - Path=/pagos/**
+
+            # 3. Ruta para Pedidos
+            - id: microservicio-pedidos
+              uri: lb://MICROSERVICIO-PEDIDOS
+              predicates:
+                - Path=/pedidos/**
+
+            # 4. Nueva Ruta para Swagger UI
+            - id: pedidos-swagger
+              uri: lb://MICROSERVICIO-PEDIDOS
+              predicates:
+                - Path=/swagger-ui/**, /v3/api-docs/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

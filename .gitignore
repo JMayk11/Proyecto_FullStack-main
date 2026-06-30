@@ -1,0 +1,13 @@
+# Ignorar carpetas de compilación de todos los microservicios
+**/target/
+**.class
+
+# Archivos de configuración de editores (VS Code / IntelliJ)
+**/.vscode/
+**/.idea/
+**.iml
+**.factorypath
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
