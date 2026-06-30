@@ -17,7 +17,7 @@ public class UsuarioController {
 
     @GetMapping("/lista")
     public List<Usuario> listarUsuarios() {
-        return usuarioService.listarUsuarios(); // 👈 CAMBIADO: Ahora delega correctamente la lógica
+        return usuarioService.listarUsuarios(); 
     }
 
     @PostMapping("/registro")

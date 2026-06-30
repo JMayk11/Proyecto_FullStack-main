@@ -16,7 +16,7 @@ public class Usuario {
     
     private String nombre;
     private String email;
-    private String rut; // 1. Agregamos la variable que faltaba para la HU-01
+    private String rut; 
 
     // Constructor vacío obligatorio para JPA (Se mantiene igual)
     public Usuario() {}

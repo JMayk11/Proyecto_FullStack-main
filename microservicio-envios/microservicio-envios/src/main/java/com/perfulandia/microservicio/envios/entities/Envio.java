@@ -7,13 +7,13 @@ import jakarta.persistence.*;
 public class Envio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Delegamiento de la autoincrementación eficiente al motor.
     private Long id;
 
     @Column(nullable = false)
     private Long pedidoId;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true) // Garantizar integridad referencial a nivel de esquema de base de datos.
     private String numeroTracking;
 
     @Column(nullable = false)

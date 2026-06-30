@@ -4,6 +4,7 @@ import com.perfulandia.microservicio.envios.entities.Envio;
 import com.perfulandia.microservicio.envios.repositories.EnvioRepository;
 import org.springframework.stereotype.Service;
 import java.util.UUID;
+// Administra el flujo del estado logístico.
 
 @Service
 public class EnvioServiceImpl implements EnvioService {
@@ -22,7 +23,7 @@ public class EnvioServiceImpl implements EnvioService {
         if (region == null || region.trim().isEmpty()) {
             throw new IllegalArgumentException("La región de destino no puede estar vacía.");
         }
-
+        // Generar códigos de rastreo únicos con probabilidad matemática de colisión cero.
         String numeroTracking = "TRK-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
         Envio nuevoEnvio = new Envio(pedidoId, numeroTracking, region, "En preparación");

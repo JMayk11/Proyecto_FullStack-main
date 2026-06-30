@@ -14,6 +14,7 @@ public class NotificationController {
     public NotificationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
+    // retorno de códigos HTTP semánticos
 
     @PostMapping("/enviar-correo")
     public ResponseEntity<String> enviarCorreoElectronico(@RequestBody NotificationRequest request) {

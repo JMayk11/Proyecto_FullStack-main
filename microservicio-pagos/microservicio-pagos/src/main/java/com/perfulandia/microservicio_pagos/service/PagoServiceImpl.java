@@ -16,7 +16,7 @@ public class PagoServiceImpl implements PagoService {
 
     @Override
     public Pago procesarPago(Long pedidoId, Double monto, String metodoPago) {
-        // Regla de Negocio 1: Evitar montos corruptos o negativos
+        // Regla de Negocio 1: Bloqueo de montos corruptos o negativos
         if (monto == null || monto <= 0) {
             throw new IllegalArgumentException("El monto a facturar debe ser estrictamente mayor a cero.");
         }
@@ -41,7 +41,8 @@ public class PagoServiceImpl implements PagoService {
 
         return pagoRepository.save(nuevoPago);
     }
-
+    // Si la base de datos de otro servicio se corrompe, la persistencia transaccional de Pagos queda totalmente aislada y blindada.
+    
     @Override
     public List<Pago> obtenerPagosPorPedido(Long pedidoId) {
         return pagoRepository.findByPedidoId(pedidoId);

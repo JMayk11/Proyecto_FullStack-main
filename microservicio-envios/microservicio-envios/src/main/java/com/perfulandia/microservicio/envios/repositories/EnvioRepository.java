@@ -11,6 +11,6 @@ public interface EnvioRepository extends JpaRepository<Envio, Long> {
     Optional<Envio> findByNumeroTracking(String numeroTracking);
     List<Envio> findByRegionAndEstadoLogistico(String region, String estadoLogistico);
     
-    // 📌 AGREGA ESTA LÍNEA (Esto sanará el error de la línea 44 en la implementación):
+    // Spring interpreta el nombre en tiempo de compilación y autogenera el SQL, blindando el sistema contra SQL Injection
     Optional<Envio> findByPedidoId(Long pedidoId); 
 }

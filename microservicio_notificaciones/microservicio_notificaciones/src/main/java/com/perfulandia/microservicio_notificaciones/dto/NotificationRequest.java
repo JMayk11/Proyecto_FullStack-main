@@ -4,6 +4,7 @@ public class NotificationRequest {
     private String destinatario;
     private String asunto;
     private String mensaje;
+//  Evita exponer entidades de la Base de Datos al exterior.
 
     // Constructor vacío
     public NotificationRequest() {}

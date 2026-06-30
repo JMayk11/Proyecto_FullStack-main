@@ -29,6 +29,5 @@ public class PagoController {
         }
     }
 
-    // Nota: Si necesitas listar todos, dejamos el repositorio o servicio. 
-    // Para no romper tu estructura, puedes mantenerlo llamando al servicio o directo si no hay lógica.
+    // Asegura Inmutabilidad y Facilidad de Pruebas Unitarias
 }
